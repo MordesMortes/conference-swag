@@ -11,12 +11,14 @@ public class SwagSpawner : MonoBehaviour
     public List<GameObject> SwagObjects = new List<GameObject>();//all the objects we want to be swag
     public List<Transform> SwagObjectPlacement = new List<Transform>();//all the placement of where we want swag objects to respawn
     public Hashtable Swag = new Hashtable();//all the info on the swag
+    [Range (1,300)]
+    public float SwagWait;//seconds to wait before respawning swag
     readonly GameObject SwagDownload;//variable used to download swag from local or remote files
-                                            // Start is called before the first frame update
+                                     
 
     private void Awake()
     {
-       SwagObjects.AddRange(Resources.LoadAll<GameObject>("swag/"));//grabs all objects in the resources/swag folder
+        SwagObjects.AddRange(Resources.LoadAll<GameObject>("swag/"));//grabs all objects in the resources/swag folder
     }
     private void Start()
     {
@@ -25,14 +27,15 @@ public class SwagSpawner : MonoBehaviour
             GameObject i = item;
             SwagObjectPlacement.Add(i.transform);
             //i.SetActive(false);
-            SpawnSwag(i.name);            
+            SpawnSwag(i.name);
         }
-       
+
     }
     public void SpawnSwag(String Swag)
     {
         GameObject i = SwagObjects.Find(item => item.name == Swag);
-        GameObject clone = Instantiate(i, i.transform.position, UnityEngine.Quaternion.identity);
+        Instantiate(i, i.transform.position, UnityEngine.Quaternion.identity);
+        //Debug.Log(i.name + " SpawnSwag");
         //clone.SetActive(true);
         //clone.AddComponent<RealTimeThrowable>();
         //clone.AddComponent<RealtimeTransform>();
@@ -54,10 +57,26 @@ public class SwagSpawner : MonoBehaviour
             }
             else
             {
-                webRequest.downloadHandler.
+                //webRequest.downloadHandler.
             }
         }
-        
+
     }
 
+    public void PickUp(string swag)
+    {
+        
+        StartCoroutine(WaitToRespawn(swag));
+        
+        //WaitToRespawn(swag);
+        //SpawnSwag(swag);
+        //Debug.Log(swag);
+    }
+
+    private IEnumerator WaitToRespawn(string swag)//delays respawning the swag to prevent swag yeeting
+    {
+        yield return new WaitForSeconds(SwagWait);
+        SpawnSwag(swag);
+                
+    }
 }

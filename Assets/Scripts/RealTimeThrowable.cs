@@ -6,7 +6,7 @@ using Valve.VR.InteractionSystem;
 
 public class RealTimeThrowable : Throwable
 {
-    
+    bool DroppedSwag = false;//to prevent object from spawning more than one piece of swag
     RealtimeView rtView;
     //[HideInInspector]
     public int Ownership = -1;
@@ -37,6 +37,22 @@ public class RealTimeThrowable : Throwable
     {
         rtTransform.RequestOwnership();
         Ownership = rtTransform.ownerID;
+    }
+
+    public void PickUp()
+    {
+        if (DroppedSwag == false)
+        {
+            string swag = gameObject.name;
+            swag = swag.Substring(0, swag.Length - 7);
+            GameObject.FindObjectOfType<SwagSpawner>().PickUp(swag);
+        }
+        
+    }
+
+    public void Dropped()
+    {
+        DroppedSwag = true;
     }
     
 }
