@@ -5,11 +5,12 @@ using B83.Win32;
 using System;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
-
+using UnityEditor;
 
 public class FileDragAndDrop : MonoBehaviour
 {
     DropInfo dropInfo = null;
+    public string DropFolder;//folder to drop files into
     
     class DropInfo
     {
@@ -31,6 +32,7 @@ public class FileDragAndDrop : MonoBehaviour
 
     void OnFiles(List<string> aFiles, POINT aPos)
     {
+       
         string file = "";
         // do something with the dropped file names. aPos will contain the 
         // mouse position within the window where the files has been dropped.
@@ -38,11 +40,15 @@ public class FileDragAndDrop : MonoBehaviour
             aFiles.Aggregate((a, b) => a + "\n\t" + b);
         foreach (var f in aFiles)
         {
-            var fi = new System.IO.FileInfo(f);
-            var ext = fi.Extension.ToLower();
+            
+            var fileInfo = new System.IO.FileInfo(f);
+            var ext = fileInfo.Extension.ToLower();
             if (ext == ".png" || ext == ".jpg" || ext == ".jpeg" || ext == ".dae" || ext == ".fbx" || ext == ".3ds" || ext == ".dxf" || ext == ".obj" )
             {
                 file = f;
+
+                File.Copy(@file, DropFolder + fileInfo.Name);
+                //FindObjectOfType<SwagSpawner>().SpawnSwag(fileInfo.Name);
                 break;
             }
         }
@@ -52,7 +58,8 @@ public class FileDragAndDrop : MonoBehaviour
             var info = new DropInfo
             {
                 file = file,
-                pos = new Vector3(aPos.x, aPos.y)
+                pos = new Vector2(aPos.x, aPos.y)
+               
             };
             dropInfo = info;
         }

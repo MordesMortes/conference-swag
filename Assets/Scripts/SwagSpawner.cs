@@ -5,6 +5,10 @@ using System.Collections.Generic;
 using System.Numerics;
 using UnityEngine;
 using UnityEngine.Networking;
+using System.IO;
+using Valve.VR;
+using Valve.VR.InteractionSystem;
+
 
 public class SwagSpawner : MonoBehaviour
 {
@@ -13,11 +17,13 @@ public class SwagSpawner : MonoBehaviour
     public Hashtable Swag = new Hashtable();//all the info on the swag
     [Range (1,300)]
     public float SwagWait;//seconds to wait before respawning swag
+    public GameObject SwagPresets;//the object that contains all the presets we want swag to have usually an empty
     readonly GameObject SwagDownload;//variable used to download swag from local or remote files
                                      
 
     private void Awake()
     {
+        //SwagObjects.AddRange(Resources.LoadAll<GameObject>(FindObjectOfType<FileDragAndDrop>().DropFolder));//grabs all objects in the drop folder
         SwagObjects.AddRange(Resources.LoadAll<GameObject>("swag/"));//grabs all objects in the resources/swag folder
     }
     private void Start()
@@ -33,12 +39,14 @@ public class SwagSpawner : MonoBehaviour
     }
     public void SpawnSwag(String Swag)
     {
+        
         GameObject i = SwagObjects.Find(item => item.name == Swag);
-        Instantiate(i, i.transform.position, UnityEngine.Quaternion.identity);
+        GameObject Parent = Instantiate(SwagPresets);
+        GameObject clone = Instantiate(i, i.transform.position, UnityEngine.Quaternion.identity);
         //Debug.Log(i.name + " SpawnSwag");
         //clone.SetActive(true);
-        //clone.AddComponent<RealTimeThrowable>();
-        //clone.AddComponent<RealtimeTransform>();
+        clone.transform.SetParent(Parent.transform);
+        
     }
 
     public IEnumerator GetSwag(string FileLocation)

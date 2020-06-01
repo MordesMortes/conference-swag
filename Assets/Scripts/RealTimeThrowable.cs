@@ -39,12 +39,12 @@ public class RealTimeThrowable : Throwable
         Ownership = rtTransform.ownerID;
     }
 
-    public void PickUp()
+    public void PickUp()//detects when swag is picked up and sets SwagSpawner/pickup to respawn the swag
     {
         if (DroppedSwag == false)
         {
-            string swag = gameObject.name;
-            swag = swag.Substring(0, swag.Length - 7);
+            string swag = gameObject.name;//get's name of picked up swag
+            swag = swag.Substring(0, swag.Length - 7);//cuts (clone) off the end so Swag can be respawned
             GameObject.FindObjectOfType<SwagSpawner>().PickUp(swag);
         }
         
