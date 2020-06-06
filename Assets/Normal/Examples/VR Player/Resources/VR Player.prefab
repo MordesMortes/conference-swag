@@ -170,7 +170,10 @@ GameObject:
   - component: {fileID: 4369254572010764}
   - component: {fileID: 114397248209533090}
   - component: {fileID: 114296471283698206}
-  m_Layer: 0
+  - component: {fileID: 409329079359622360}
+  - component: {fileID: 4844657268377212711}
+  - component: {fileID: 550547514052637080}
+  m_Layer: 10
   m_Name: Right Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -232,6 +235,72 @@ MonoBehaviour:
   _syncRotation: 1
   _syncScale: 0
   _extrapolation: 0
+--- !u!114 &409329079359622360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315796314851182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f811c0733a48a1f47add9212b3275877, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  contactIneractibles: []
+--- !u!114 &4844657268377212711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315796314851182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e66a111c50beeb94eaeb53e19060938e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TriggerAction:
+    actionPath: /actions/default/in/GrabPinch
+    needsReinit: 0
+  OnTriggerDown:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 409329079359622360}
+        m_MethodName: TryInteraction
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  OnTriggerUp:
+    m_PersistentCalls:
+      m_Calls: []
+  TouchpadAction:
+    actionPath: 
+    needsReinit: 0
+  OnTouchpadDown:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTouchpadUp:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &550547514052637080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315796314851182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12ccf55ac03b4ba41a482b55e70b838b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1325244956883770
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,6 +366,7 @@ Transform:
   - {fileID: 4098411418399560}
   - {fileID: 4258753728346310}
   - {fileID: 4369254572010764}
+  - {fileID: 1469641496567365076}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -478,7 +548,10 @@ GameObject:
   - component: {fileID: 4258753728346310}
   - component: {fileID: 114098979720017432}
   - component: {fileID: 114734376799190690}
-  m_Layer: 0
+  - component: {fileID: 9041334329920205714}
+  - component: {fileID: 7238304836524217613}
+  - component: {fileID: 2432173214366500637}
+  m_Layer: 10
   m_Name: Left Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -540,6 +613,72 @@ MonoBehaviour:
   _syncRotation: 1
   _syncScale: 0
   _extrapolation: 0
+--- !u!114 &9041334329920205714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1677690864260768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f811c0733a48a1f47add9212b3275877, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  contactIneractibles: []
+--- !u!114 &7238304836524217613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1677690864260768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e66a111c50beeb94eaeb53e19060938e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TriggerAction:
+    actionPath: /actions/default/in/GrabPinch
+    needsReinit: 0
+  OnTriggerDown:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9041334329920205714}
+        m_MethodName: TryInteraction
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  OnTriggerUp:
+    m_PersistentCalls:
+      m_Calls: []
+  TouchpadAction:
+    actionPath: 
+    needsReinit: 0
+  OnTouchpadDown:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTouchpadUp:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &2432173214366500637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1677690864260768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12ccf55ac03b4ba41a482b55e70b838b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1681626021449142
 GameObject:
   m_ObjectHideFlags: 0
@@ -748,3 +887,83 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouth: {fileID: 4187294060141768}
+--- !u!1001 &8034775280431338666
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4736743072354544}
+    m_Modifications:
+    - target: {fileID: 8927390841356495224, guid: 3a3c74fb67bbab24ab6d2d5b5361addf,
+        type: 3}
+      propertyPath: m_Name
+      value: Belt
+      objectReference: {fileID: 0}
+    - target: {fileID: 8927390841356495230, guid: 3a3c74fb67bbab24ab6d2d5b5361addf,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8927390841356495230, guid: 3a3c74fb67bbab24ab6d2d5b5361addf,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8927390841356495230, guid: 3a3c74fb67bbab24ab6d2d5b5361addf,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8927390841356495230, guid: 3a3c74fb67bbab24ab6d2d5b5361addf,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8927390841356495230, guid: 3a3c74fb67bbab24ab6d2d5b5361addf,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8927390841356495230, guid: 3a3c74fb67bbab24ab6d2d5b5361addf,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8927390841356495230, guid: 3a3c74fb67bbab24ab6d2d5b5361addf,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8927390841356495230, guid: 3a3c74fb67bbab24ab6d2d5b5361addf,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8927390841356495230, guid: 3a3c74fb67bbab24ab6d2d5b5361addf,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8927390841356495230, guid: 3a3c74fb67bbab24ab6d2d5b5361addf,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8927390841356495230, guid: 3a3c74fb67bbab24ab6d2d5b5361addf,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8927390841356495231, guid: 3a3c74fb67bbab24ab6d2d5b5361addf,
+        type: 3}
+      propertyPath: head
+      value: 
+      objectReference: {fileID: 4098411418399560}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3a3c74fb67bbab24ab6d2d5b5361addf, type: 3}
+--- !u!4 &1469641496567365076 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8927390841356495230, guid: 3a3c74fb67bbab24ab6d2d5b5361addf,
+    type: 3}
+  m_PrefabInstance: {fileID: 8034775280431338666}
+  m_PrefabAsset: {fileID: 0}

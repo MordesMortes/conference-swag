@@ -41,11 +41,13 @@ public class SwagSpawner : MonoBehaviour
     {
         
         GameObject i = SwagObjects.Find(item => item.name == Swag);
-        GameObject Parent = Instantiate(SwagPresets);
+        GameObject Parent = Instantiate(SwagPresets,i.transform.position, UnityEngine.Quaternion.identity);
         GameObject clone = Instantiate(i, i.transform.position, UnityEngine.Quaternion.identity);
         //Debug.Log(i.name + " SpawnSwag");
         //clone.SetActive(true);
         clone.transform.SetParent(Parent.transform);
+        //Parent.transform.position = clone.transform.position;
+        Parent.name = clone.name;
         
     }
 

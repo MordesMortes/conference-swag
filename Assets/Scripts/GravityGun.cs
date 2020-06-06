@@ -107,6 +107,7 @@ public class GravityGun : MonoBehaviour
 
     public void DropObj()
     {
+        objectIHave.GetComponent<RealTimeThrowable>().Dropped();//makes each swag only able to spawn the next
         objectRB.constraints = RigidbodyConstraints.None;
         objectIHave.transform.parent = null;
         objectIHave = null;
@@ -138,6 +139,7 @@ public class GravityGun : MonoBehaviour
                 objectRB = objectIHave.GetComponent<Rigidbody>();
                 objectRB.constraints = RigidbodyConstraints.FreezeAll;
                 hasObject = true;
+                objectIHave.GetComponent<RealTimeThrowable>().PickUp();
                 objectIHave.GetComponent<RealTimeThrowable>().Grabbed();
                 
 
